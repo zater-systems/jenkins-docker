@@ -14,5 +14,3 @@ RUN apk add --no-cache shadow
 # Install Docker
 RUN apk add --no-cache docker
 RUN rc-update add docker boot
-
-RUN usermod -aG docker jenkins
