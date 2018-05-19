@@ -5,11 +5,17 @@
 ### Build ###
 
 ``` bash
-$ docker build -t zater/jenkins .
+$ sudo docker build -t zater/jenkins .
 ```
 
 ### Run ###
 
 ``` bash
-$ docker run -p 8080:8080 -v jenkins_home:/var/jenkins_home zater/jenkins
+$ sudo docker run \
+  --name jenkins \
+  -p 8080:8080 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -d \
+  zater/jenkins
 ```
