@@ -11,6 +11,9 @@ RUN apk --no-cache upgrade
 RUN apk add --no-cache openrc
 RUN apk add --no-cache shadow
 
+# Install NodeJS
+RUN apk add --update nodejs nodejs-npm
+
 # Install Docker
 RUN apk add --no-cache docker
 RUN rc-update add docker boot
