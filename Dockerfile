@@ -1,5 +1,6 @@
 FROM jenkins/jenkins:lts-alpine
 
+
 # Switch user to root
 USER root
 
@@ -17,9 +18,12 @@ RUN apk add --update \
     python-dev \
     py-pip \
     build-base
+RUN pip install --upgrade pip
 RUN pip install awscli --upgrade --user
 RUN apk --purge -v del py-pip
 RUN rm -rf /var/cache/apk/*
+
+ENV PATH="~/.local/bin:${PATH}"
 
 # Install Docker
 RUN apk add --no-cache docker
