@@ -11,6 +11,9 @@ RUN apk --no-cache upgrade
 RUN apk add --no-cache openrc
 RUN apk add --no-cache shadow
 
+# Install AWS CLI
+RUN apk add --no-cache aws-cli
+
 # Install Docker
 RUN apk add --no-cache docker
 RUN rc-update add docker boot
