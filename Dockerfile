@@ -12,7 +12,14 @@ RUN apk add --no-cache openrc
 RUN apk add --no-cache shadow
 
 # Install AWS CLI
-RUN apk add --no-cache aws-cli
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base
+RUN pip install awscli --upgrade --user
+RUN apk --purge -v del py-pip
+RUN rm -rf /var/cache/apk/*
 
 # Install Docker
 RUN apk add --no-cache docker
